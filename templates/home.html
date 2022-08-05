@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Hate Speech App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  
+  <body>
+    <header>
+      <nav>
+        <ul id="nav_bar">
+          <li class="nav-links" id="gmail"><a In</a></li>
+        </ul>  
+      </nav>  
+    </header>  
+    
+    <!-- APP IMG -->  
+    <div class="google">
+      <a href="#" id="google_logo"><img src={{url_for('static', filename='hatespeech_logo.png')}}/></a>
+    </div>
+    
+    <!-- FORM SEARCH -->  
+    <div class="form">
+	<form action="{{ url_for('predict')}}" method="POST">
+  	<textarea name="message" rows="4" cols="50" placeholder="Search text to detect"></textarea>
+    
+    	<div class= "buttons">  
+      		<input type="submit" value="Predict" id="predict">
+    	</div>
+	</form>
+    </div>
+
+
+
+</body>
+</html>

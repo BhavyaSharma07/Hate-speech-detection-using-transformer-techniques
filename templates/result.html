@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Lucida Console", "Courier New", monospace;
+  background-color: #666666
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 550px;
+  height: 400px;
+  perspective: 1000px;
+  margin-left: 33%;
+  margin-top: 5%;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #FFFF66;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.p1 {
+margin-top:8%;
+}
+</style>
+</head>
+<body>
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+	<p class="p1">
+	<h2>LSTM-Attention Model Result</h2>
+    {% set vpp = foobar.split(',') %}
+	<b>Instance: </b>{{ ins }}<br>
+	Incites Violence: {{ vpp[0] }}<br>
+	No Violence: {{ 1-vpp[0] }}<br><br>
+	<b>Scope:-</b><br>
+	Direct: {{ vpp[1] }}<br>
+	Generalized: {{ 1-vpp[1] }}<br><br>
+	<b>Hate Group:-</b><br>
+	Gender: {{ vpp[2] }}<br>
+	Race: {{ vpp[3] }}<br>
+	Origin: {{ vpp[4] }}<br>
+	Disablity: {{ vpp[5] }}<br>
+	Religion: {{ vpp[6] }}<br>
+	Sexual Orientation: {{ vpp[7] }}<br>
+	</p>
+    </div>
+    <div class="flip-card-back">
+	  <p>
+      <h2>BERT-CNN Model Result</h2> 
+	  {% set pred = bts.split(',') %}
+	  <b>Hate Group:-</b><br>
+	  Toxic: {{ pred[0] }}<br>
+	  Severe Toxic: {{ pred[1] }}<br>
+	  Obscene: {{ pred[2] }}<br>
+	  Threat: {{ pred[3] }}<br>
+	  Insult: {{ pred[4] }}<br>
+	  Identity Hate: {{ pred[5] }}<br>
+	  </p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
